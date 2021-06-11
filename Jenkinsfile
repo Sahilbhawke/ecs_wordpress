@@ -11,7 +11,6 @@ pipeline {
       steps {
         sh 'docker build -t sahilbhawke/jenkins-docker:1.0 .'
       }
-        echo "Building Docker Image"
     }
 	stage ('Docker Push') {
       agent any
@@ -19,7 +18,7 @@ pipeline {
         withDockerRegistry([ credentialsId: "docker-cred", url: "https://registry.hub.docker.com" ]) {
           sh 'docker push sahilbhawke/jenkins-docker:1.0'
         }
-           echo "Trying to Push Docker Build to DockerHub"
+             echo "Trying to Push Docker Build to DockerHub"
       }
 	}
   }
