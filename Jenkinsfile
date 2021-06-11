@@ -16,7 +16,7 @@ pipeline {
 	stage ('Docker Push') {
       agent any
       steps {
-        withDockerRegistry([ credentialsId: "docker-cred", url: "https://hub.docker.com/repository/docker/sahilbhawke/k8s_wordpress" ]) {
+        withDockerRegistry([ credentialsId: "docker-cred", url: "https://registry.hub.docker.com" ]) {
           sh 'docker push sahilbhawke/jenkins-docker:1.0'
         }
            echo "Trying to Push Docker Build to DockerHub"
