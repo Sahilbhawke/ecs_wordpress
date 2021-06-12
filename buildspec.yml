@@ -36,18 +36,18 @@ phases:
       - echo Build started on `date`
       - echo Building the Docker image...
       - echo $IMAGE_TAG > code_hash.txt
-      - docker build -t devbitcot/k8s-Wordpress:latest .
-      - docker tag devbitcot/k8s-Wordpress:latest devbitcot/k8s-Wordpress:latest
-      - docker build -f Dockerfile.cdk -t k8s-Wordpress/k8s-Wordpress:cdk .
+      - docker build -t devbitcot/k8s-wordpress:latest .
+      - docker tag devbitcot/k8s-wordpress:latest devbitcot/k8s-wordpress:latest
+      - docker build -f Dockerfile.cdk -t k8s-wordpress/k8s-Wordpress:cdk .
       # - docker build -t myimage .
   post_build:
     commands:
       - printf '[{"name":"example-backend","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push $DOCKER_HUB_USERNAME/$PROJECT_NAME:$IMAGE_TAG
-      - docker push $DOCKER_HUB_USERNAME/$PROJECT_NAME:$IMAGE_WORD_TAG
-      - docker push $DOCKER_HUB_USERNAME/$PROJECT_NAME:cdk
+      - docker push devbitcot/k8s-wordpress:latest
+      - docker push devbitcot/k8s-wordpress:latest
+      - docker push devbitcot/k8s-wordpress:latest:cdk
       # - docker pull anchore/cli
       # - docker run -d -v $(pwd):/source-dir -v /var/run/docker.sock:/var/run/docker.sock --name anchore anchore/cli:latest
       # - docker exec anchore anchore feeds sync
