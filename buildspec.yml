@@ -4,6 +4,8 @@ env:
   parameter-store:
     DOCKER_HUB_USERNAME: "devbitcot"
     DOCKER_HUB_PASSWORD: "Bitcotadmin"
+    PROJECT_NAME: "k8s_Wordpress"
+    IMAGE_TAG: "latest"
     # store with: aws ssm put-parameter --name "docker_hub_username" --value "<username value>" --type String
 phases:
   install:
