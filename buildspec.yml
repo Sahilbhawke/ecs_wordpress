@@ -38,7 +38,7 @@ phases:
       - echo $IMAGE_TAG > code_hash.txt
       - docker build -t devbitcot/k8s-wordpress:latest .
       - docker tag devbitcot/k8s-wordpress:latest devbitcot/k8s-wordpress:latest
-      - docker build -f Dockerfile.cdk -t k8s-wordpress/k8s-Wordpress:cdk .
+      - docker build -f Dockerfile.cdk -t k8s-wordpress/k8s-wordpress:cdk .
       # - docker build -t myimage .
   post_build:
     commands:
