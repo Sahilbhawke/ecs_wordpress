@@ -36,9 +36,9 @@ phases:
       - echo Build started on `date`
       - echo Building the Docker image...
       - echo $IMAGE_TAG > code_hash.txt
-      - docker build -t $DOCKER_HUB_USERNAME/$PROJECT_NAME:$IMAGE_TAG .
-      - docker tag $DOCKER_HUB_USERNAME/$PROJECT_NAME:$IMAGE_TAG $DOCKER_HUB_USERNAME/$PROJECT_NAME:$IMAGE_WORD_TAG
-      - docker build -f Dockerfile.cdk -t $DOCKER_HUB_USERNAME/$PROJECT_NAME:cdk .
+      - docker build -t devbitcot/k8s-Wordpress:latest .
+      - docker tag devbitcot/k8s-Wordpress:latest devbitcot/k8s-Wordpress:latest
+      - docker build -f Dockerfile.cdk -t k8s-Wordpress/k8s-Wordpress:cdk .
       # - docker build -t myimage .
   post_build:
     commands:
